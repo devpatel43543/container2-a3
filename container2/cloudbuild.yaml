@@ -6,6 +6,19 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Setup Buildx'
   args: ['buildx', 'create', '--name', 'mybuilder', '--use']
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: 'debug-ls'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    echo "Current directory:"
+    pwd
+    echo "Contents of current directory:"
+    ls -la
+    echo "Contents of container2 directory:"
+    ls -la ./container2
   
 - name: 'gcr.io/cloud-builders/docker'
   id: 'build'
