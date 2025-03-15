@@ -21,8 +21,8 @@ steps:
   - '-t'
   - 'us-central1-docker.pkg.dev/kubernetes-a3-453021/kubernetes-registry/devkumar640/container2:latest'
   - '-f'
-  - './container2/Dockerfile'  # Path to Dockerfile
-  - './container2'             # Build context
+  - './container2/Dockerfile'  
+  - './container2'             
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
