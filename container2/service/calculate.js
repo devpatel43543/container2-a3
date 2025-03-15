@@ -18,7 +18,7 @@ const calculate = async (req, res) => {
             } 
             if (extension === '.yml' && sum === 0) {
                 return res.send({file,
-                    error: "Input file not in CSV format. s "
+                    error: "Input file not in CSV format."
                 });
             }
             res.status(200).send({ file,sum});
