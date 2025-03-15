@@ -6,7 +6,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Setup Buildx'
   args: ['buildx', 'create', '--name', 'mybuilder', '--use']
-
+  
 - name: 'gcr.io/cloud-builders/docker'
   id: 'build'
   args:
@@ -20,20 +20,18 @@ steps:
   - 'us-central1-docker.pkg.dev/kubernetes-a3-453021/kubernetes-registry/devkumar640/container2:$SHORT_SHA'
   - '-t'
   - 'us-central1-docker.pkg.dev/kubernetes-a3-453021/kubernetes-registry/devkumar640/container2:latest'
-  - '-f'
-  - './container2/Dockerfile'  
-  - './container2'             
-
+  - './container2'
+  
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
   - 'container'
   - 'clusters'
   - 'get-credentials'
-  - 'a3-cluster'
+  - 'a3-cluster'  
   - '--zone'
-  - 'us-central1-c'
+  - 'us-central1-c' 
   - '--project'
-  - 'kubernetes-a3-453021'
+  - 'kubernetes-a3-453021'  
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/container2', 'container2=us-central1-docker.pkg.dev/kubernetes-a3-453021/kubernetes-registry/devkumar640/container2:$SHORT_SHA']
@@ -43,6 +41,6 @@ steps:
 
 options:
   env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central2-c'
-    - 'CLOUDSDK_CONTAINER_CLUSTER=a3-cluster'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=a3-cluster' 
   logging: CLOUD_LOGGING_ONLY
