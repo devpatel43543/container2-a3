@@ -10,7 +10,7 @@ const processCSVFile = async (filePath) => {
     const validateRow = (row) => {
         const rowKeys = Object.keys(row);
 
-        // Validate column structure and ensure no spaces in product/amount fields
+        // Validate column structure and ensure no spaces in product/amount fields 
         const hasValidColumns = rowKeys.length === expectedColumns.length && expectedColumns.every(col => rowKeys.includes(col));
         const hasNoSpaces = row.product && row.amount && !/\s/.test(row.product) && !/\s/.test(row.amount);
 
