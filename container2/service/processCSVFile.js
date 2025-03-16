@@ -2,7 +2,7 @@ const csvParser = require("csv-parser");
 const fs = require("fs");
 
 const expectedColumns = ['product', 'amount'];
-
+console.log("hello")
 const processCSVFile = async (filePath) => {
     let parsedData = [];
     let isValid = true;
