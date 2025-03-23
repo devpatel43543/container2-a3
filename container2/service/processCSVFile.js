@@ -6,7 +6,7 @@ console.log("hello")
 const processCSVFile = async (filePath) => {
     let parsedData = [];
     let isValid = true;
-
+    console.log("hello")
     const validateRow = (row) => {
         const rowKeys = Object.keys(row);
 
